@@ -13,8 +13,8 @@
 #'
 #' @inheritParams classif_params
 #' @param eps :: `numeric(1)`\cr
-#'   Probabilities are clipped to `max(eps, min(1 - eps, p))`, otherwise the measure would
-#'   be undefined for probabilities `p = 0` and `p = 1`.
+#'   Probabilities are clipped to `max(eps, min(1 - eps, p))`.
+#'   Otherwise the measure would be undefined for probabilities `p = 0` and `p = 1`.
 #' @export
 #' @examples
 #' set.seed(1)
@@ -34,4 +34,4 @@ logloss = function(truth, prob, eps = 1e-15, ...){
 }
 
 #' @include measures.R
-add_measure(logloss, "classif", 0, Inf, TRUE)
+add_measure(logloss, "Log Loss", "classif", 0, Inf, TRUE)

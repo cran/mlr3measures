@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Regression measure defined as \deqn{
-#'   \frac{2}{n} \sum_{i=1}^n \frac{\left| t_i - r_i \right|}{\left| t_i \right| + \left| t_i \right|}.
+#'   \frac{2}{n} \sum_{i=1}^n \frac{\left| t_i - r_i \right|}{\left| t_i \right| + \left| r_i \right|}.
 #' }{
 #'   2 * mean(abs(t - r) / (abs(t) + abs(r))).
 #' }
@@ -25,4 +25,4 @@ smape = function(truth, response, na_value = NaN, ...) {
 }
 
 #' @include measures.R
-add_measure(smape, "regr", 0, 2, TRUE)
+add_measure(smape, "Symmetric Mean Absolute Percent Error", "regr", 0, 2, TRUE)

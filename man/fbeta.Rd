@@ -9,11 +9,11 @@ fbeta(truth, response, positive, beta = 1, na_value = NaN, ...)
 \arguments{
 \item{truth}{:: \code{factor()}\cr
 True (observed) labels.
-Must have exactly same two levels and the same length as \code{response}.}
+Must have the exactly same two levels and the same length as \code{response}.}
 
 \item{response}{:: \code{factor()}\cr
 Predicted response labels.
-Must have exactly same two levels and the same length as \code{truth}.}
+Must have the exactly same two levels and the same length as \code{truth}.}
 
 \item{positive}{:: \code{character(1)}\cr
 Name of the positive class.}
@@ -35,7 +35,7 @@ Performance value as \code{numeric(1)}.
 \description{
 Binary classification measure defined with \eqn{P} as \code{\link[=precision]{precision()}} and \eqn{R} as
 \code{\link[=recall]{recall()}} as \deqn{
-   (1 + \beta^2) \frac{PR}{(\beta^2 P) + R}.
+   (1 + \beta^2) \frac{P \cdot R}{(\beta^2 P) + R}.
 }{
    (1 + beta^2) * (P*R) / ((beta^2 * P) + R).
 }

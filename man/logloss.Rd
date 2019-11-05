@@ -17,8 +17,8 @@ specific class label.
 Columns must be named with levels of \code{truth}.}
 
 \item{eps}{:: \code{numeric(1)}\cr
-Probabilities are clipped to \code{max(eps, min(1 - eps, p))}, otherwise the measure would
-be undefined for probabilities \code{p = 0} and \code{p = 1}.}
+Probabilities are clipped to \code{max(eps, min(1 - eps, p))}.
+Otherwise the measure would be undefined for probabilities \code{p = 0} and \code{p = 1}.}
 
 \item{...}{:: \code{any}\cr
 Additional arguments. Currently ignored.}
@@ -54,7 +54,7 @@ logloss(truth, prob)
 }
 \seealso{
 Other Classification Measures: \code{\link{acc}},
-  \code{\link{ce}}
+  \code{\link{bacc}}, \code{\link{ce}}
 }
 \concept{Classification Measures}
 \concept{classification_measure}

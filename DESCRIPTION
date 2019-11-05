@@ -1,6 +1,6 @@
 Package: mlr3measures
 Title: Performance Measures for 'mlr3'
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Michel",
            family = "Lang",
@@ -25,17 +25,17 @@ Collate: 'assertions.R' 'measures.R' 'binary_auc.R' 'binary_dor.R'
         'binary_fbeta.R' 'binary_fdr.R' 'binary_fn.R' 'binary_fnr.R'
         'binary_fomr.R' 'binary_fp.R' 'binary_fpr.R' 'binary_mcc.R'
         'binary_npv.R' 'binary_ppv.R' 'binary_tn.R' 'binary_tnr.R'
-        'binary_tp.R' 'binary_tpr.R' 'classif_acc.R' 'classif_ce.R'
-        'classif_logloss.R' 'confusion_matrix.R' 'helper.R'
-        'regr_bias.R' 'regr_ktau.R' 'regr_mae.R' 'regr_mape.R'
-        'regr_maxae.R' 'regr_maxse.R' 'regr_medae.R' 'regr_medse.R'
-        'regr_mse.R' 'regr_msle.R' 'regr_pbias.R' 'regr_rae.R'
-        'regr_rmse.R' 'regr_rmsle.R' 'regr_rrse.R' 'regr_rse.R'
-        'regr_rsq.R' 'regr_sae.R' 'regr_smape.R' 'regr_srho.R'
-        'regr_sse.R' 'roxygen.R' 'zzz.R'
+        'binary_tp.R' 'binary_tpr.R' 'classif_acc.R' 'classif_bacc.R'
+        'classif_ce.R' 'classif_logloss.R' 'confusion_matrix.R'
+        'helper.R' 'regr_bias.R' 'regr_ktau.R' 'regr_mae.R'
+        'regr_mape.R' 'regr_maxae.R' 'regr_maxse.R' 'regr_medae.R'
+        'regr_medse.R' 'regr_mse.R' 'regr_msle.R' 'regr_pbias.R'
+        'regr_rae.R' 'regr_rmse.R' 'regr_rmsle.R' 'regr_rrse.R'
+        'regr_rse.R' 'regr_rsq.R' 'regr_sae.R' 'regr_smape.R'
+        'regr_srho.R' 'regr_sse.R' 'roxygen.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2019-10-22 17:16:19 UTC; michel
+Packaged: 2019-11-05 07:31:05 UTC; michel
 Author: Michel Lang [cre, aut] (<https://orcid.org/0000-0001-9754-0393>)
 Maintainer: Michel Lang <michellang@gmail.com>
 Repository: CRAN
-Date/Publication: 2019-10-28 14:00:02 UTC
+Date/Publication: 2019-11-05 07:50:02 UTC
