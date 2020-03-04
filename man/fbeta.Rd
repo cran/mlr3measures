@@ -44,8 +44,11 @@ as much importance to recall as precision.
 For \eqn{\beta = 1}{beta = 1}, this measure is called "F1" score.
 }
 \note{
-This measure is undefined if either \link{precision} or \link{recall} is undefined, i.e.
-TP + FP = 0 or TP + FN = 0.
+This measure is undefined if
+\itemize{
+\item TP = 0
+\item \link{precision} or \link{recall} is undefined, i.e. TP + FP = 0 or TP + FN = 0.
+}
 }
 \section{Meta Information}{
 
@@ -70,12 +73,22 @@ fbeta(truth, response, positive = "a")
 \cite{rijsbergen_1979}
 }
 \seealso{
-Other Binary Classification Measures: \code{\link{auc}},
-  \code{\link{dor}}, \code{\link{fdr}}, \code{\link{fnr}},
-  \code{\link{fn}}, \code{\link{fomr}}, \code{\link{fpr}},
-  \code{\link{fp}}, \code{\link{mcc}}, \code{\link{npv}},
-  \code{\link{ppv}}, \code{\link{tnr}}, \code{\link{tn}},
-  \code{\link{tpr}}, \code{\link{tp}}
+Other Binary Classification Measures: 
+\code{\link{auc}()},
+\code{\link{dor}()},
+\code{\link{fdr}()},
+\code{\link{fnr}()},
+\code{\link{fn}()},
+\code{\link{fomr}()},
+\code{\link{fpr}()},
+\code{\link{fp}()},
+\code{\link{mcc}()},
+\code{\link{npv}()},
+\code{\link{ppv}()},
+\code{\link{tnr}()},
+\code{\link{tn}()},
+\code{\link{tpr}()},
+\code{\link{tp}()}
 }
 \concept{Binary Classification Measures}
 \concept{binary_classification_measure}

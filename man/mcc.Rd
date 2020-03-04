@@ -32,7 +32,7 @@ Binary classification measure defined as \deqn{
 }
 }
 \note{
-This measure is undefined if any of the four sums in the denominator is 0.
+This above formula is undefined if any of the four sums in the denominator is 0.
 The denominator is then set to 1.
 }
 \section{Meta Information}{
@@ -56,12 +56,22 @@ mcc(truth, response, positive = "a")
 \cite{matthews_1975}
 }
 \seealso{
-Other Binary Classification Measures: \code{\link{auc}},
-  \code{\link{dor}}, \code{\link{fbeta}},
-  \code{\link{fdr}}, \code{\link{fnr}}, \code{\link{fn}},
-  \code{\link{fomr}}, \code{\link{fpr}}, \code{\link{fp}},
-  \code{\link{npv}}, \code{\link{ppv}}, \code{\link{tnr}},
-  \code{\link{tn}}, \code{\link{tpr}}, \code{\link{tp}}
+Other Binary Classification Measures: 
+\code{\link{auc}()},
+\code{\link{dor}()},
+\code{\link{fbeta}()},
+\code{\link{fdr}()},
+\code{\link{fnr}()},
+\code{\link{fn}()},
+\code{\link{fomr}()},
+\code{\link{fpr}()},
+\code{\link{fp}()},
+\code{\link{npv}()},
+\code{\link{ppv}()},
+\code{\link{tnr}()},
+\code{\link{tn}()},
+\code{\link{tpr}()},
+\code{\link{tp}()}
 }
 \concept{Binary Classification Measures}
 \concept{binary_classification_measure}
