@@ -3,6 +3,7 @@ context("binary classification measures")
 run_all_measures = function(truth, response, prob, positive, na_allowed = FALSE) {
   conf = cm(truth, response, positive = positive)
   na_value = if (na_allowed) 123456789 else NaN
+  tol = sqrt(.Machine$double.eps)
 
   for (m in as.list(measures)) {
     if (m$type != "binary")
@@ -10,8 +11,9 @@ run_all_measures = function(truth, response, prob, positive, na_allowed = FALSE)
     f = match.fun(m$id)
     perf = f(truth = truth, response = response, prob = prob, positive = positive, na_value = na_value)
 
-    if (!(na_allowed && identical(perf, na_value)))
-      expect_number(perf, na.ok = FALSE, lower = m$lower, upper = m$upper, label = m$id)
+    if (!(na_allowed && identical(perf, na_value))) {
+      expect_number(perf, na.ok = FALSE, lower = m$lower - tol, upper = m$upper + tol, label = m$id)
+    }
 
     f_cm = get0(sprintf("%s_cm", m$id))
     if (!is.null(f_cm)) {
@@ -44,6 +46,7 @@ test_that("integer overflow", {
   response = factor(ifelse(truth == "a", "b", "a"), levels = levels(truth))
   run_all_measures(truth, response, prob, positive, na_allowed = TRUE)
 })
+
 
 test_that("tests from Metrics", {
   as_fac = function(...) factor(ifelse(c(...) == 0, "b", "a"), levels = c("a", "b"))
@@ -103,4 +106,21 @@ test_that("confusion measures", {
   expect_identical(specificity(response, truth, positive = "a"), TN / (FP + TN))
   expect_identical(tnr(response, truth, positive = "a"), TN / (FP + TN))
   expect_identical(tpr(response, truth, positive = "a"), TP / (TP + FN))
+})
+
+test_that("bbrier", {
+  N = 30L
+  truth = ssample(letters[1:2], N)
+  prob = as.numeric(truth == "a")
+
+  expect_equal(bbrier(truth, prob, positive = "a"), 0)
+  expect_equal(bbrier(truth, prob, positive = "b"), 1)
+
+  prob = runif(N)
+  pm = cbind(prob, 1 - prob)
+  colnames(pm) = c("a", "b")
+  expect_equal(2 * bbrier(truth, prob, "a"), mbrier(truth, pm))
+
+  colnames(pm) = c("b", "a")
+  expect_equal(2 * bbrier(truth, prob, "b"), mbrier(truth, pm))
 })
