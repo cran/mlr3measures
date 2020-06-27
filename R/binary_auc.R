@@ -26,14 +26,16 @@ auc = function(truth, prob, positive, na_value = NaN, ...) {
   assert_binary(truth, prob = prob, positive = positive, na_value = na_value)
 
   i = which(truth == positive)
-  n_pos = as.numeric(length(i))
-  n_neg = as.numeric(length(truth)) - n_pos
+  n_pos = length(i)
+  n_neg = length(truth) - n_pos
 
   if (n_pos == 0L || n_neg == 0L)
     return(na_value)
 
   r = rank(prob, ties.method = "average")
-  (sum(r[i]) - n_pos * (n_pos + 1L) / 2L) / (n_pos * n_neg)
+  # simplifying the following:
+  # (sum(r[i]) - n_pos * (n_pos + 1L) / 2L) / (n_pos * n_neg)
+  (mean(r[i]) - (as.numeric(n_pos) + 1) / 2) / as.numeric(n_neg)
 }
 
 #' @include measures.R
