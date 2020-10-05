@@ -53,7 +53,10 @@ prob = c(.6, .7, .1, .4)
 auc(truth, prob, "a")
 }
 \references{
-\cite{youden_1950}
+Youden WJ (1950).
+\dQuote{Index for rating diagnostic tests.}
+\emph{Cancer}, \bold{3}(1), 32--35.
+\doi{10.1002/1097-0142(1950)3:1<32::aid-cncr2820030106>3.0.co;2-3}.
 }
 \seealso{
 Other Binary Classification Measures: 
@@ -69,6 +72,7 @@ Other Binary Classification Measures:
 \code{\link{mcc}()},
 \code{\link{npv}()},
 \code{\link{ppv}()},
+\code{\link{prauc}()},
 \code{\link{tnr}()},
 \code{\link{tn}()},
 \code{\link{tpr}()},
