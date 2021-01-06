@@ -1,6 +1,6 @@
 Package: mlr3measures
 Title: Performance Measures for 'mlr3'
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     c(person(given = "Michel",
              family = "Lang",
@@ -22,8 +22,9 @@ URL: https:///mlr3measures.mlr-org.com,
 BugReports: https://github.com/mlr-org/mlr3measures/issues
 Depends: R (>= 3.1.0)
 Imports: checkmate, PRROC
-Suggests: testthat
+Suggests: testthat (>= 3.0.0)
 Encoding: UTF-8
+Config/testthat/edition: 3
 RoxygenNote: 7.1.1
 Collate: 'assertions.R' 'bibentries.R' 'measures.R' 'binary_auc.R'
         'binary_bbrier.R' 'binary_dor.R' 'binary_fbeta.R'
@@ -40,9 +41,9 @@ Collate: 'assertions.R' 'bibentries.R' 'measures.R' 'binary_auc.R'
         'regr_rsq.R' 'regr_sae.R' 'regr_smape.R' 'regr_srho.R'
         'regr_sse.R' 'roxygen.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2020-10-05 12:58:54 UTC; lang
+Packaged: 2021-01-05 19:51:29 UTC; michel
 Author: Michel Lang [cre, aut] (<https://orcid.org/0000-0001-9754-0393>),
   Martin Binder [ctb]
 Maintainer: Michel Lang <michellang@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-10-05 14:10:03 UTC
+Date/Publication: 2021-01-06 16:00:37 UTC

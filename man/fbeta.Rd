@@ -7,26 +7,26 @@
 fbeta(truth, response, positive, beta = 1, na_value = NaN, ...)
 }
 \arguments{
-\item{truth}{:: \code{factor()}\cr
+\item{truth}{(\code{factor()})\cr
 True (observed) labels.
 Must have the exactly same two levels and the same length as \code{response}.}
 
-\item{response}{:: \code{factor()}\cr
+\item{response}{(\code{factor()})\cr
 Predicted response labels.
 Must have the exactly same two levels and the same length as \code{truth}.}
 
-\item{positive}{:: \code{character(1)}\cr
+\item{positive}{(\verb{character(1))}\cr
 Name of the positive class.}
 
-\item{beta}{:: \code{numeric(1)}\cr
+\item{beta}{(\code{numeric(1)})\cr
 Parameter to give either precision or recall more weight.
 Default is 1, resulting in balanced weights.}
 
-\item{na_value}{:: \code{numeric(1)}\cr
+\item{na_value}{(\code{numeric(1)})\cr
 Value that should be returned if the measure is not defined for the input
 (as described in the note). Default is \code{NaN}.}
 
-\item{...}{:: \code{any}\cr
+\item{...}{(\code{any})\cr
 Additional arguments. Currently ignored.}
 }
 \value{
@@ -68,14 +68,15 @@ response = factor(sample(lvls, 10, replace = TRUE), levels = lvls)
 fbeta(truth, response, positive = "a")
 }
 \references{
-Rijsbergen, Van CJ (1979).
-\emph{Information Retrieval}, 2nd edition.
-Butterworth-Heinemann, Newton, MA, USA.
-ISBN 408709294.
 Sasaki, Yutaka, others (2007).
 \dQuote{The truth of the F-measure.}
 \emph{Teach Tutor mater}, \bold{1}(5), 1--5.
 \url{https://www.cs.odu.edu/~mukka/cs795sum10dm/Lecturenotes/Day3/F-measure-YS-26Oct07.pdf}.
+
+Rijsbergen, Van CJ (1979).
+\emph{Information Retrieval}, 2nd edition.
+Butterworth-Heinemann, Newton, MA, USA.
+ISBN 408709294.
 }
 \seealso{
 Other Binary Classification Measures: 

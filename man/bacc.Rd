@@ -7,20 +7,20 @@
 bacc(truth, response, sample_weights = NULL, ...)
 }
 \arguments{
-\item{truth}{:: \code{factor()}\cr
+\item{truth}{(\code{factor()})\cr
 True (observed) labels.
 Must have the same levels and length as \code{response}.}
 
-\item{response}{:: \code{factor()}\cr
+\item{response}{(\code{factor()})\cr
 Predicted response labels.
 Must have the same levels and length as \code{truth}.}
 
-\item{sample_weights}{:: \code{numeric()}\cr
+\item{sample_weights}{(\code{numeric()})\cr
 Non-negative sample weights.
 Must have the same levels and length as \code{truth}.
 Defaults to equal sample weights.}
 
-\item{...}{:: \code{any}\cr
+\item{...}{(\code{any})\cr
 Additional arguments. Currently ignored.}
 }
 \value{
@@ -65,6 +65,7 @@ Brodersen KH, Ong CS, Stephan KE, Buhmann JM (2010).
 \dQuote{The Balanced Accuracy and Its Posterior Distribution.}
 In \emph{2010 20th International Conference on Pattern Recognition}.
 \doi{10.1109/icpr.2010.764}.
+
 Guyon I, Bennett K, Cawley G, Escalante HJ, Escalera S, Ho TK, Macia N, Ray B, Saeed M, Statnikov A, Viegas E (2015).
 \dQuote{Design of the 2015 ChaLearn AutoML challenge.}
 In \emph{2015 International Joint Conference on Neural Networks (IJCNN)}.
