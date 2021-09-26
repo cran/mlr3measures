@@ -5,7 +5,6 @@ format_bib = function(...) {
 
 #' @importFrom utils bibentry
 bibentries = c( # nolint start
-
   brodersen_2010     = bibentry("inproceedings",
     title            = "The Balanced Accuracy and Its Posterior Distribution",
     author           = "Kay Henning Brodersen and Cheng Soon Ong and Klaas Enno Stephan and Joachim M. Buhmann",
@@ -72,15 +71,14 @@ bibentries = c( # nolint start
     pages            = "331--353",
     doi              = "10.1007/s10115-006-0037-3"
   ),
-  sasaki_2007        = bibentry("article",
-    title            = "The truth of the F-measure",
-    author           = "Sasaki, Yutaka and others",
-    year             = "2007",
-    journal          = "Teach Tutor mater",
-    volume           = "1",
-    number           = "5",
-    pages            = "1--5",
-    url              = "https://www.cs.odu.edu/~mukka/cs795sum10dm/Lecturenotes/Day3/F-measure-YS-26Oct07.pdf"
+  goutte_2005        = bibentry("inproceedings",
+    doi              = "10.1007/978-3-540-31865-1_25",
+    year             = "2005",
+    publisher        = "Springer Berlin Heidelberg",
+    pages            = "345--359",
+    author           = "Cyril Goutte and Eric Gaussier",
+    title            = "A Probabilistic Interpretation of Precision,  Recall and F-Score,  with Implication for Evaluation",
+    booktitle        = "Lecture Notes in Computer Science"
   ),
   youden_1950        = bibentry("article",
     title            = "Index for rating diagnostic tests",
@@ -134,5 +132,46 @@ bibentries = c( # nolint start
     pages            = "131--138",
     year             = "2001",
     organization     = "IEEE"
+  ),
+  jaccard_1901       = bibentry("article",
+    doi              = "10.5169/SEALS-266450",
+    author           = "Jaccard,  Paul",
+    title            = "\u00c9tude comparative de la distribution florale dans une portion des Alpes et du Jura",
+    journal          = "Bulletin de la Soci\u00e9t\u00e9 Vaudoise des Sciences Naturelles",
+    volume           = "37",
+    pages            = "547-579",
+    publisher        = "Imprimerie Corbaz & Comp.",
+    year             = "1901"
+  ),
+  bommert_2017       = bibentry("article",
+    doi              = "10.1155/2017/7907163",
+    year             = "2017",
+    publisher        = "Hindawi Limited",
+    volume           = "2017",
+    pages            = "1--18",
+    author           = "Andrea Bommert and J\u00f6rg Rahnenf\u00fchrer and Michel Lang",
+    title            = "A Multicriteria Approach to Find Predictive and Sparse Models with Stable Feature Selection for High-Dimensional Data",
+    journal          = "Computational and Mathematical Methods in Medicine"
+  ),
+  nogueira_2016      = bibentry("incollection",
+    doi              = "10.1007/978-3-319-46227-1_28",
+    year             = "2016",
+    publisher        = "Springer International Publishing",
+    pages            = "442--457",
+    author           = "Sarah Nogueira and Gavin Brown",
+    title            = "Measuring the Stability of Feature Selection",
+    booktitle        = "Machine Learning and Knowledge Discovery in Databases"
+  ),
+  stabm              = bibentry("article",
+    title            = "{stabm}: Stability Measures for Feature Selection",
+    author           = "Andrea Bommert and Michel Lang",
+    journal          = "Journal of Open Source Software",
+    year             = "2021",
+    doi              = "10.21105/joss.03010",
+    publisher        = "The Open Journal",
+    volume           = "6",
+    number           = "59",
+    pages            = "3010"
   )
+
 ) # nolint end

@@ -23,10 +23,23 @@ sle = function(truth, response) {
 # simple division, but ensures that `na_value` is returned
 # if the denominator is < TOL
 div = function(nominator, denominator, na_value) {
-  if (abs(denominator) < TOL)
+  if (abs(denominator) < TOL) {
     na_value
-  else
+  } else {
     nominator / denominator
+  }
+}
+
+wmean = function(x, w) { # a better stats::weighted.mean
+  if (is.null(w)) {
+    return(mean(x))
+  }
+  assert_numeric(w, lower = 0, finite = TRUE, any.missing = FALSE, len = length(x))
+  if (all(abs(w) < TOL)) {
+    stop("All sample weights are 0")
+  }
+
+  sum(x * (w / sum(w)))
 }
 
 # confusion matrix
@@ -49,4 +62,9 @@ format_range = function(item) {
     if (is.finite(u)) c(u, u) else c("\\infty", "Inf"),
     if (is.finite(u)) "]" else ")")
   paste0("\\eqn{", str[1L], "}{", str[2L], "}")
+}
+
+map_pairwise = function(x, .fun, ...) {
+  .fun = match.fun(.fun)
+  combn(x, m = 2L, function(.pair, ...) .fun(.pair[[1L]], .pair[[2L]], ...), simplify = TRUE, ...)
 }

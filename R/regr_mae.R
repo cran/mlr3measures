@@ -1,10 +1,10 @@
-#' @title Mean Absolute Errors
+#' @title Mean Absolute Error
 #'
 #' @description
 #' Regression measure defined as \deqn{
-#'   \frac{1}{n} \sum_{i=1}^n \left| t_i - r_i \right|.
+#'   \frac{1}{n} \sum_{i=1}^n w_i \left| t_i - r_i \right|.
 #' }{
-#'   mean(abs(t - r)).
+#'   weighted.mean(abs(t - r), w).
 #' }
 #'
 #' @templateVar mid mae
@@ -13,10 +13,10 @@
 #' @inheritParams regr_params
 #' @template regr_example
 #' @export
-mae = function(truth, response, ...) {
+mae = function(truth, response, sample_weights = NULL, ...) {
   assert_regr(truth, response = response)
-  mean(ae(truth, response))
+  wmean(ae(truth, response), sample_weights)
 }
 
 #' @include measures.R
-add_measure(mae, "Mean Absolute Errors", "regr", 0, Inf, TRUE)
+add_measure(mae, "Mean Absolute Error", "regr", 0, Inf, TRUE)

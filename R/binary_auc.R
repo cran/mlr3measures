@@ -8,7 +8,7 @@
 #' @templateVar mid auc
 #' @template binary_template
 #'
-#' @note
+#' @details
 #' This measure is undefined if the true values are either all positive or
 #' all negative.
 #'
@@ -29,8 +29,9 @@ auc = function(truth, prob, positive, na_value = NaN, ...) {
   n_pos = length(i)
   n_neg = length(truth) - n_pos
 
-  if (n_pos == 0L || n_neg == 0L)
+  if (n_pos == 0L || n_neg == 0L) {
     return(na_value)
+  }
 
   r = rank(prob, ties.method = "average")
   # simplifying the following:

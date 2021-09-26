@@ -14,13 +14,13 @@
 #' @templateVar mid fbeta
 #' @template binary_template
 #'
-#' @note
+#' @details
 #' This measure is undefined if
 #' * TP = 0
 #' * [precision] or [recall] is undefined, i.e. TP + FP = 0 or TP + FN = 0.
 #'
 #' @references
-#' `r format_bib("sasaki_2007", "rijsbergen_1979")`
+#' `r format_bib("rijsbergen_1979", "goutte_2005")`
 #'
 #' @inheritParams binary_params
 #' @param beta (`numeric(1)`)\cr
@@ -37,8 +37,9 @@ fbeta = function(truth, response, positive, beta = 1, na_value = NaN, ...) {
 fbeta_cm = function(m, beta = 1, na_value = NaN) {
   pred_pos = sum(m[1L, ])
   cond_pos = sum(m[, 1L])
-  if (m[1L, 1L] == 0L || pred_pos == 0L || cond_pos == 0L)
+  if (m[1L, 1L] == 0L || pred_pos == 0L || cond_pos == 0L) {
     return(na_value)
+  }
 
   P = m[1L, 1L] / pred_pos
   R = m[1L, 1L] / cond_pos
