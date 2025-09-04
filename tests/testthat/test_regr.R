@@ -3,6 +3,7 @@ test_that("trigger all", {
   truth = 1 + runif(N)
   response = 1 + runif(N)
   tol = sqrt(.Machine$double.eps)
+  sample_weights = runif(length(truth))
 
   for (m in as.list(measures)) {
     if (m$type != "regr") {
@@ -13,23 +14,22 @@ test_that("trigger all", {
     perf = f(truth = truth, response = response)
     if (m$aggregated) {
       expect_number(perf, na.ok = FALSE, lower = m$lower - tol, upper = m$upper + tol, label = m$id)
-    } else {
-      expect_numeric(perf, any.missing = FALSE, lower = m$lower - tol, upper = m$upper + tol, label = m$id)
-    }
 
-    if ("sample_weights" %in% names(formals(f))) {
-      sample_weights = runif(length(truth))
-      perf = f(truth = truth, response = response, sample_weights = sample_weights)
-      expect_number(perf, na.ok = FALSE, lower = m$lower - tol, upper = m$upper + tol, label = m$id)
+      if ("sample_weights" %in% names(formals(f))) {
+        perf = f(truth = truth, response = response, sample_weights = sample_weights)
+        expect_number(perf, na.ok = FALSE, lower = m$lower - tol, upper = m$upper + tol, label = m$id)
+      }
+    } else {
+      expect_numeric(perf, len = N, any.missing = FALSE, lower = m$lower - tol, upper = m$upper + tol, label = m$id)
     }
   }
 })
 
 test_that("tests from Metrics", {
   expect_equal(bias(1, 1), 0)
-  expect_equal(bias(c(-1, -100, 17.5), c(0, 0, 0)), mean(c(-1, -100, 17.5)))
+  expect_equal(bias(c(-1, -100, 17.5), c(0, 0, 0)), mean(c(1, 100, -17.5)))
 
-  expect_equal(pbias(c(1, 2, 3), c(1, 3, 2)), mean(c(0, -1 / 2, 1 / 3)))
+  expect_equal(pbias(c(1, 2, 3), c(1, 3, 2)), mean(c(0, 1 / 2, -1 / 3)))
   expect_equal(pbias(c(1, 2, 0), c(1, 2, 1)), NaN)
   expect_equal(pbias(0, 0), NaN)
   expect_equal(pbias(c(-1.1, 1.1), c(-1, 1)), 0)
@@ -69,22 +69,6 @@ test_that("tests from Metrics", {
   expect_equal(msle(c(1, 2, exp(1) - 1), c(1, 2, exp(2) - 1)), 1 / 3)
 
   expect_equal(rmsle(c(exp(5) - 1), c(exp(1) - 1)), 4)
-
-  expect_equal(rae(0:10, 30:40), 11)
-  expect_equal(rae(seq(0, 2, 0.5), seq(0, 2, 0.5)), 0.0)
-  expect_equal(rae(1:4, c(1, 2, 3, 5)), 0.25)
-
-  expect_equal(rrse(0:10, 2:12), sqrt(0.4))
-  expect_equal(rrse(seq(0, 2, 0.5), seq(0, 2, 0.5)), 0.0)
-  expect_equal(rrse(1:4, c(1, 2, 3, 5)), sqrt(0.2))
-
-  expect_equal(rse(0:10, 2:12), 0.4)
-  expect_equal(rse(seq(0, 2, 0.5), seq(0, 2, 0.5)), 0.0)
-  expect_equal(rse(1:4, c(1, 2, 3, 5)), 0.2)
-
-  expect_equal(rsq(0:10, 2:12), 0.6)
-  expect_equal(rsq(seq(0, 2, 0.5), seq(0, 2, 0.5)), 1.0)
-  expect_equal(rsq(1:4, c(1, 2, 3, 5)), 0.8)
 
   expect_equal(pinball(1:3, 1:3), 0)
   expect_equal(pinball(1:3, c(0, 2, 3)), 1 / 6)

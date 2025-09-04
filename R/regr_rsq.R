@@ -21,6 +21,7 @@
 #' @template regr_example
 #' @export
 rsq = function(truth, response, na_value = NaN, ...) {
+  .Deprecated(msg = "rsq is deprecated")
   assert_regr(truth, response = response, na_value = na_value)
   v = var(truth)
   if (v < TOL) {

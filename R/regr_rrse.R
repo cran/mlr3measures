@@ -1,3 +1,4 @@
+
 #' @title Root Relative Squared Error
 #'
 #' @details
@@ -19,6 +20,7 @@
 #' @template regr_example
 #' @export
 rrse = function(truth, response, na_value = NaN, ...) {
+  .Deprecated(msg = "rrse is deprecated")
   assert_regr(truth, response = response, na_value = na_value)
   v = var(truth)
   if (v < TOL) {

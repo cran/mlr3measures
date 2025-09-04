@@ -18,6 +18,7 @@
 #' @template regr_example
 #' @export
 rae = function(truth, response, na_value = NaN, ...) {
+  .Deprecated(msg = "rae is deprecated")
   assert_regr(truth, response = response, na_value = na_value)
   div(sum(.ae(truth, response)), sum(.ae(truth, mean(truth))), na_value)
 }
