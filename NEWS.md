@@ -1,3 +1,7 @@
+# mlr3measures 1.2.0
+
+* feat: Add observation-wise loss functions for `bbrier` and `logloss`.
+
 # mlr3measures 1.1.0
 
 * fix: Define bias measures correctly.

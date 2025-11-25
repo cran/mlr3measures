@@ -1,10 +1,10 @@
-0f8581c1afcf3f6a1000851f859244fd *DESCRIPTION
-fb46dcc0d23cb594476faac120a86dcb *NAMESPACE
-b04ecc5dfff130183574caaa0d163f59 *NEWS.md
+86f0bdc68f6f94ec62a6b0552f201766 *DESCRIPTION
+73a66028dc30d25b274b087b82b74494 *NAMESPACE
+7f967d54c925f6acff4c25bd9c509257 *NEWS.md
 cca4314a662242847f6e0b2b6813b297 *R/assertions.R
 a0d18ec83360c1a0bdd9320f3ee9aa4e *R/bibentries.R
 93e53d8d98e460fb677a5c5b1451afa5 *R/binary_auc.R
-f2403010ce54fa085888915f07125d78 *R/binary_bbrier.R
+bb4c992309ffd102639cea213c2b269e *R/binary_bbrier.R
 8f6f527208a9834cbb239003bbc3931f *R/binary_dor.R
 b84b613d259f6597365f8a5cf6f63772 *R/binary_fbeta.R
 e2879518031ac869de209a891700d5e2 *R/binary_fdr.R
@@ -26,7 +26,7 @@ e9fc8b1fcb391f6d3e38c4ea0c332c4e *R/binary_tp.R
 cdc65b6402ae0693c8dea40e64101438 *R/classif_auc.R
 689a780a497a55bcd12651c543a0347a *R/classif_bacc.R
 3708ad78951f93b8b147b7602ec6d257 *R/classif_ce.R
-ab35ac80a6ddac3ce4d1e2bd319c52eb *R/classif_logloss.R
+e5c83bc362241795360990842bd8b030 *R/classif_logloss.R
 c56299d41800108c987db86186b98170 *R/classif_mbrier.R
 767e344070d496f5f8c38463c3be542e *R/classif_mcc.R
 acdbc2b63414bd0dce40f7e42196fdfd *R/classif_zero_one.R
@@ -106,6 +106,7 @@ ca0c03c9c50061405de204234ffff048 *man/mlr3measures-package.Rd
 cc6f704e749f651bceb053e03b3bdf0e *man/mse.Rd
 b78043668df755dcb458f3752aeaec24 *man/msle.Rd
 de38c454a2bfb29e378d98ced1023175 *man/npv.Rd
+3fcb35491efc5ed2edc9d2d4457761dd *man/obs_logloss.Rd
 1b32edad166a5990b45008e94d7d7878 *man/pbias.Rd
 08bb8100d23dfa80e21562e4caa4dde2 *man/phi.Rd
 6c9fe736561150b8f8935586bbead97a *man/pinball.Rd
@@ -120,6 +121,7 @@ eda039aaa566e5c609af2faa22ab9694 *man/rmsle.Rd
 e42c9116c97f1d5e8fcd1741c44e4bb3 *man/rsq.Rd
 3916e5809624c24e25bc797655afedd7 *man/sae.Rd
 0a95de71f37b56b772b11b8bc6b82813 *man/se.Rd
+d024d4a33750ec1c1e0d09d32f994ddd *man/se_binary.Rd
 cd960cfe4aef13b615a0bcef2d26d960 *man/similarity_params.Rd
 13c6f4a7304d379332500d18f00a290e *man/sle.Rd
 69dcf219e6625514dc6b6ee9eb7fcf76 *man/smape.Rd
@@ -133,6 +135,8 @@ cacd98c8736a2b958146492d14e2b448 *man/tnr.Rd
 a9c1326d15dbe72b8129b3f9fd36d095 *tests/testthat.R
 0f7d8a107eaacc0c7970923974a66cf1 *tests/testthat/helper.R
 1dba1cba2439b869cd31dedcae9c498b *tests/testthat/test_binary.R
+f2179caa3f4e0027b1495c2904bbaf47 *tests/testthat/test_binary_bbrier.R
 3b2fa413c3dea3a36b9ec91618911270 *tests/testthat/test_classif.R
+a192827e86e2ce6a31b364e465039eb3 *tests/testthat/test_classif_logloss.R
 69d6d685fb5cabbb93c7864f61ef12e7 *tests/testthat/test_regr.R
 8056604c17f23770604b4474a78b476b *tests/testthat/test_similarity.R
