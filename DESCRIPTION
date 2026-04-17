@@ -1,6 +1,6 @@
 Package: mlr3measures
 Title: Performance Measures for 'mlr3'
-Version: 1.2.0
+Version: 1.3.0
 Authors@R: c(
     person("Michel", "Lang", , "michellang@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0001-9754-0393")),
@@ -42,11 +42,11 @@ Collate: 'assertions.R' 'bibentries.R' 'measures.R' 'binary_auc.R'
         'regr_smape.R' 'regr_srho.R' 'regr_sse.R' 'roxygen.R'
         'similarity_jaccard.R' 'similarity_phi.R' 'zzz.R'
 NeedsCompilation: no
-Packaged: 2025-11-24 15:05:19 UTC; marc
+Packaged: 2026-04-17 12:55:06 UTC; marc
 Author: Michel Lang [aut] (ORCID: <https://orcid.org/0000-0001-9754-0393>),
   Martin Binder [ctb],
   Marc Becker [cre, aut] (ORCID: <https://orcid.org/0000-0002-8115-0400>),
   Lona Koers [aut]
 Maintainer: Marc Becker <marcbecker@posteo.de>
 Repository: CRAN
-Date/Publication: 2025-11-25 06:10:37 UTC
+Date/Publication: 2026-04-17 13:20:02 UTC

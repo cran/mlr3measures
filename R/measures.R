@@ -14,7 +14,7 @@
 #' * `predict_type`: prediction type the measure operates on.
 #'   `"response"` corresponds to class labels for classification and the numeric response for regression.
 #'   `"prob"` corresponds to class probabilities, provided as a matrix with class labels as column names.
-#'   `"se"` corresponds to to the vector of predicted standard errors for regression.
+#'   `"se"` corresponds to the vector of predicted standard errors for regression.
 #' * `minimize`: If `TRUE` or `FALSE`, the objective is to minimize or maximize the measure, respectively.
 #'   Can also be `NA`.
 #' * `obs_loss`: Name of the function which is called to calculate the (unaggregated) loss per observation.
@@ -32,7 +32,17 @@ measures = new.env(parent = emptyenv())
 class(measures) = c("MeasureEnv", class(measures))
 
 # adds items to registry
-add_measure = function(obj, title, type, lower, upper, minimize, obs_loss = NA_character_, trafo = NA_character_, aggregated = TRUE) {
+add_measure = function(
+  obj,
+  title,
+  type,
+  lower,
+  upper,
+  minimize,
+  obs_loss = NA_character_,
+  trafo = NA_character_,
+  aggregated = TRUE
+) {
   id = deparse(substitute(obj))
 
   ptype = intersect(names(formals(obj)), c("response", "prob", "se"))
@@ -46,19 +56,23 @@ add_measure = function(obj, title, type, lower, upper, minimize, obs_loss = NA_c
     assert_true(!is.na(obs_loss))
   }
 
-  assign(id, list(
-    id = id,
-    title = assert_string(title),
-    type = assert_choice(type, c("binary", "classif", "regr", "similarity")),
-    lower = assert_number(lower),
-    upper = assert_number(upper),
-    predict_type = ptype,
-    minimize = assert_flag(minimize, na.ok = TRUE),
-    obs_loss = assert_string(obs_loss, na.ok = TRUE),
-    aggregated = assert_flag(aggregated),
-    sample_weights = "sample_weights" %in% names(formals(obj)),
-    trafo = trafo
-  ), envir = measures)
+  assign(
+    id,
+    list(
+      id = id,
+      title = assert_string(title),
+      type = assert_choice(type, c("binary", "classif", "regr", "similarity")),
+      lower = assert_number(lower),
+      upper = assert_number(upper),
+      predict_type = ptype,
+      minimize = assert_flag(minimize, na.ok = TRUE),
+      obs_loss = assert_string(obs_loss, na.ok = TRUE),
+      aggregated = assert_flag(aggregated),
+      sample_weights = "sample_weights" %in% names(formals(obj)),
+      trafo = trafo
+    ),
+    envir = measures
+  )
 }
 
 #' @export
@@ -75,6 +89,7 @@ as.data.frame.MeasureEnv = function(x, ...) {
     lower = vapply(x, function(x) x$lower, NA_real_, USE.NAMES = FALSE),
     upper = vapply(x, function(x) x$upper, NA_real_, USE.NAMES = FALSE),
     minimize = vapply(x, function(x) x$minimize, NA, USE.NAMES = FALSE),
+    obs_loss = vapply(x, function(x) !is.na(x$obs_loss), NA, USE.NAMES = FALSE),
     sample_weights = vapply(x, function(x) x$sample_weights, NA, USE.NAMES = FALSE)
   )
 }

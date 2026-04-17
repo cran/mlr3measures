@@ -7,7 +7,7 @@
 #'   2 * mean(abs(t - r) / (abs(t) + abs(r))).
 #' }
 #'
-#' This measure is undefined if if any \eqn{|t| + |r|} is equal to \eqn{0}.
+#' This measure is undefined if any \eqn{|t| + |r|} is equal to \eqn{0}.
 #'
 #' @templateVar mid smape
 #' @template regr_template
@@ -15,13 +15,13 @@
 #' @inheritParams regr_params
 #' @template regr_example
 #' @export
-smape = function(truth, response, na_value = NaN, ...) {
+smape = function(truth, response, sample_weights = NULL, na_value = NaN, ...) {
   assert_regr(truth, response = response, na_value = na_value)
   denom = abs(truth) + abs(response)
   if (any(denom < TOL)) {
     return(na_value)
   }
-  2 * mean(.ae(truth, response) / denom)
+  2 * wmean(.ae(truth, response) / denom, sample_weights)
 }
 
 #' @include measures.R
